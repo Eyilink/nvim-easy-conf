@@ -1,0 +1,2 @@
+require("eyilink")
+print("hello")
