@@ -35,11 +35,11 @@ function _G.toggle_bottom_terminal()
       end
     end
     -- If buffer exists but not displayed, open it at the bottom
-    vim.cmd('botright 5split | buffer ' .. _G.bottom_term_buf)
+    vim.cmd('botright 20split | buffer ' .. _G.bottom_term_buf)
     vim.cmd('startinsert')
   else
     -- Terminal doesn't exist yet → create it
-    vim.cmd('botright 5split | terminal zsh')
+    vim.cmd('botright 20split | terminal zsh')
     vim.cmd('startinsert')
     _G.bottom_term_buf = vim.api.nvim_get_current_buf()
   end
