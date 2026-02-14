@@ -71,6 +71,10 @@ return require('packer').startup(function(use)
 		  {'rafamadriz/friendly-snippets'},
 	  }
   }
-
+		
+  use {
+    'mg979/vim-visual-multi',
+    branch = 'master',
+  }
 end)
 
