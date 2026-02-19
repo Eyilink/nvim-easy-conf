@@ -59,3 +59,10 @@ vim.api.nvim_set_keymap(
   '<C-\\><C-n>:lua _G.toggle_bottom_terminal()<CR>',
   { noremap = true, silent = true }
 )
+
+vim.keymap.set("n", "<leader>m", function()
+  vim.cmd("/fn main")
+  vim.cmd("normal! f{")
+  vim.cmd("normal! %")
+end, { desc = "Go to end of main" })
+
