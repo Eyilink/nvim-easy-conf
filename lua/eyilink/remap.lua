@@ -20,7 +20,9 @@ vim.keymap.set('i', '`', '``<Left>', { noremap = true })
 vim.keymap.set('i', '{<CR>', '{<CR>}<Esc>O', { noremap = true })
 vim.keymap.set('i', '{;<CR>', '{<CR>};<Esc>O', { noremap = true })
 
-
+-- Remap split and vslplit to Shift + V or H
+vim.keymap.set('n', 'V', '<CMD>vsplit<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', 'H', '<CMD>split<CR>', { noremap = true, silent = true })
 -- Global variable to store the terminal buffer number
 _G.bottom_term_buf = nil
 
