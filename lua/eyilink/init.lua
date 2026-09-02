@@ -1,14 +1,17 @@
 require("eyilink.remap")
-print("hello from eyilink")
 
--- In your init.lua
+require("eyilink.packer")
+
 local flag_file = vim.fn.stdpath('data') .. '/packer_synced'
 
 if vim.fn.filereadable(flag_file) == 0 then
-    vim.cmd('source /home/exefree/.config/nvim/lua/eyilink/packer.lua')
+    vim.api.nvim_create_autocmd("User", {
+        pattern = "PackerComplete",
+        once = true,
+        callback = function()
+            vim.fn.writefile({}, flag_file)
+            vim.notify("Packer sync completo. Reinicia Neovim para aplicar el tema.", vim.log.levels.INFO)
+        end,
+    })
     vim.cmd('PackerSync')
-    vim.cmd('PackerSync')
-    
-    -- Create the flag file
-    vim.fn.writefile({}, flag_file)
 end
