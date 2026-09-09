@@ -41,7 +41,8 @@ function _G.toggle_bottom_terminal()
     vim.cmd('startinsert')
   else
     -- Terminal doesn't exist yet → create it
-    vim.cmd('botright 20split | terminal zsh')
+    local target_dir = vim.g.start_dir or vim.fn.getcwd()
+    vim.cmd('botright 20split | terminal zsh -c "cd ' .. target_dir .. ' && exec zsh"')
     vim.cmd('startinsert')
     _G.bottom_term_buf = vim.api.nvim_get_current_buf()
   end
