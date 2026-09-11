@@ -45,7 +45,8 @@ end
 
 -- Git branch
 local function git_branch()
-  local branch = vim.fn.system("git branch --show-current 2>/dev/null"):gsub("\n", "")
+  local target_dir = vim.g.start_dir or vim.fn.getcwd()
+  local branch = vim.fn.system('cd ' .. target_dir .. ' && git branch --show-current 2>/dev/null'):gsub("\n", "")
 
   if branch == "" then
     return ""
